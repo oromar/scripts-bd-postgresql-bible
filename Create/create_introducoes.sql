@@ -1,0 +1,19 @@
+﻿-- Table: "INTRODUCAO"
+
+-- DROP TABLE "INTRODUCAO";
+
+CREATE TABLE "INTRODUCAO"
+(
+  id serial NOT NULL,
+  id_livro integer NOT NULL,
+  texto text NOT NULL,
+  CONSTRAINT pk_id_introducao PRIMARY KEY (id ),
+  CONSTRAINT fk_id_livro FOREIGN KEY (id_livro)
+      REFERENCES "LIVRO" (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE "INTRODUCAO"
+  OWNER TO postgres;
